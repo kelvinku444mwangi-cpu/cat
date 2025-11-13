@@ -1,0 +1,25 @@
+
+def soil_advisory(ph_level):
+    if ph_level < 0 or ph_level > 14:
+        return "Invalid pH level. Must be between 0 and 14."
+
+    if ph_level < 5.5:
+        advisory = "Soil is too acidic. Not suitable for large fruit plantations."
+        action = "Consider adding lime to raise pH."
+    elif 5.5 <= ph_level <= 7.5:
+        advisory = "Soil is suitable for most crops."
+        action = "No action needed."
+    else:
+        advisory = "Soil is too alkaline. Add soil sulfur to lower pH."
+        action = "Apply sulfur or organic matter to reduce pH."
+
+    print("\n--- Soil Advisory ---")
+    print(f"Soil pH Level    : {ph_level}")
+    print(f"Advisory Message : {advisory}")
+    print(f"Suggested Action : {action}")
+
+try:
+    ph = float(input("Enter Soil pH Level (0-14): "))
+    soil_advisory(ph)
+except ValueError:
+    print("Please enter a valid number for pH level.")
