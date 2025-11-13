@@ -1,0 +1,43 @@
+
+# Airplane Booking System
+passengers = []
+ticket_counter = 1
+seat_prices = {
+    "Economy Class": 8000,
+    "Business Class": 15000,
+    "First Class": 25000
+}
+
+while True:
+    name = input("Enter passenger name: ")
+    seat_class = input("Enter seat class (Economy Class / Business Class / First Class): ")
+    destination= input("enter the destination")
+    flight_number=input("enter flight number")
+    ticket_number = f"SKY{ticket_counter:03}"
+    ticket_cost = seat_prices.get(seat_class, 0)
+
+    passengers.append({
+        "name": name,
+        "ticket_number": ticket_number,
+        "seat_class": seat_class,
+        "ticket_cost": ticket_cost
+    })
+    print(f"\nBooking Summary for {name}")
+    print(f"Ticket Number: {ticket_number}")
+    print(f"Seat Class: {seat_class}")
+    print(f"Ticket Cost: KES {ticket_cost}\n")
+    
+    ticket_counter += 1
+    
+    more = input("Add another booking? (yes/no): ")
+    if more.lower() != "yes":
+        break
+# Final Summary
+total_passengers = len(passengers)
+total_cost = sum(p["ticket_cost"] for p in passengers)
+average_cost = total_cost / total_passengers if total_passengers else 0
+
+print("\n--- Booking Summary ---")
+print(f"Total Passengers: {total_passengers}")
+print(f"Total Ticket Cost: KES {total_cost}")
+print(f"Average Ticket Cost: KES {average_cost:.2f}")

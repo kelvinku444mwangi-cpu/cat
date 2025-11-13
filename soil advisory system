@@ -1,0 +1,26 @@
+
+# Soil Advisory System
+def get_suitability(soil_type):
+    if soil_type == "Loam":
+        return "Loam soil is suitable for most plants."
+    elif soil_type == "Clay":
+        return "Clay soil is suitable for plants requiring high moisture."
+    elif soil_type == "Sandy":
+        return "Sandy soil is suitable for plants requiring good drainage."
+    else:
+        return "Unknown soil type."
+
+while True:
+    plant_name = input("Enter plant name: ")
+    soil_ph = input("Enter soil pH level: ")
+    soil_type = input("Enter soil type (Clay / Loam / Sandy): ")
+    
+    suitability = get_suitability(soil_type)
+    
+    print(f"\nSoil Advisory for {plant_name}")
+    print(f"Soil Type: {soil_type}")
+    print(f"Suitability: {suitability}\n")
+    
+    more = input("Check another plant? (yes/no): ")
+    if more.lower() != "yes":
+        break
